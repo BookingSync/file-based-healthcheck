@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-require_relative "lib/file/based/healthcheck/version"
+require_relative "lib/file_based_healthcheck/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "file-based-healthcheck"
-  spec.version       = File::Based::Healthcheck::VERSION
+  spec.version       = FileBasedHealthcheck::VERSION
   spec.authors       = ["Karol Galanciak"]
   spec.email         = ["karol.galanciak@gmail.com"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A gem to use a healthcheck for readiness and liveness probes in Kubernetes."
+  spec.description   = "A gem to use a healthcheck for readiness and liveness probes in Kubernetes."
+  spec.homepage      = "https://github.com/BookingSync/file-based-healthcheck"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/BookingSync/file-based-healthcheck."
+  spec.metadata["changelog_uri"] = "https://github.com/BookingSync/file-based-healthcheck/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_dependency "activesupport", ">= 3.2"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html

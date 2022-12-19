@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require "file/based/healthcheck"
+require "file_based_healthcheck"
+require "tmpdir"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
