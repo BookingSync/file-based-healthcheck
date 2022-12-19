@@ -1,8 +1,6 @@
-# File::Based::Healthcheck
+# FileBasedHealthcheck
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/file/based/healthcheck`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A gem to use a healthcheck for readiness and liveness probes in Kubernetes.
 
 ## Installation
 
@@ -22,7 +20,51 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The idea behind this gem is to register heartbeats using a file. Thanks to that and comparing when the last heartbeat, happened you can easily check if the process is running or not.
+
+Initialize a new healthcheck:
+
+``` rb
+healthcheck = FileBasedHealthcheck.new(directory: Rails.root.join("tmp"), filename: ENV.fetch("HOSTNAME"), time_threshold: 60)
+```
+
+Register a heartbeat:
+
+``` rb
+healthcheck.touch
+```
+
+To verify if the process is running:
+
+``` rb
+healthcheck.running?
+```
+
+This method is going to return `true` if the file (based on `filename`) was touched in the last `time_threshold` in seconds.
+
+To remove file:
+
+``` rb
+healthcheck.remove
+```
+
+It is recommended to implement some sort of wrapper for your processes and use this gem under the hood. Then, you could create a following binary:
+
+``` rb
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require_relative "../lib/my_process"
+
+result = MyProcess::HealthCheck.check
+if result.success?
+  exit 0
+else
+  MyProcess.logger.fatal "[MyProcess] health check failed: #{result.message}"
+  exit 1
+end
+```
+
 
 ## Development
 
