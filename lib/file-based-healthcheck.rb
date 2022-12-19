@@ -1,1 +1,1 @@
-requir "file_based_healthcheck"
+require "file_based_healthcheck"
