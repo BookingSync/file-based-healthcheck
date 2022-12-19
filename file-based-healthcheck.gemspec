@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "file-based-healthcheck"
   spec.version       = FileBasedHealthcheck::VERSION
   spec.authors       = ["Karol Galanciak"]
-  spec.email         = ["karol.galanciak@gmail.com"]
+  spec.email         = ["karol.galanciak@gmail.com", "karol@bookingsync.com", "dev@bookingsync.com"]
 
   spec.summary       = "A gem to use a healthcheck for readiness and liveness probes in Kubernetes."
   spec.description   = "A gem to use a healthcheck for readiness and liveness probes in Kubernetes."
