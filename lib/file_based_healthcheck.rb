@@ -17,13 +17,13 @@ class FileBasedHealthcheck
   end
 
   def running?
-    return false if !File.exists?(file_path)
+    return false if !File.exist?(file_path)
 
     File.mtime(file_path).advance(seconds: time_threshold).utc > Time.now.utc
   end
 
   def remove
-    File.delete(file_path) if File.exists?(file_path)
+    File.delete(file_path) if File.exist?(file_path)
   end
 
   private
