@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 2024-07-22
+
 - require "active_support" before requiring anything else
 
 ## [0.2.0] - 2023-03-29
