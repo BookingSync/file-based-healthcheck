@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- require "active_support" before requiring anything else
+
 ## [0.2.0] - 2023-03-29
 
 - Use `File.exist?` instead of `File.exists?`

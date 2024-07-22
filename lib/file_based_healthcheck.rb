@@ -1,5 +1,6 @@
 require "file_based_healthcheck/version"
 require "fileutils"
+require "active_support"
 require "active_support/core_ext/time"
 
 class FileBasedHealthcheck
